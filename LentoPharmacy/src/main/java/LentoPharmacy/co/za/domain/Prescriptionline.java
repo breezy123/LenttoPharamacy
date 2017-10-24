@@ -18,7 +18,7 @@ public class Prescriptionline implements Serializable{
     private String instructions;
     private long medicineID;
     private double price;
-
+    private int quantity;
 
     @Column(name = "prescriptionID", nullable = true)
     @OneToMany(cascade=CascadeType.ALL)
@@ -50,6 +50,13 @@ public class Prescriptionline implements Serializable{
         return price;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double totalPrescription(){
+        return this.quantity * this.price;
+    }
 
     public Prescriptionline(Builder build){
         this.prescriptionID = build.prescriptionID;
@@ -57,6 +64,7 @@ public class Prescriptionline implements Serializable{
         this.instructions = build.instructions;
         this.medicineID = build.medicineID;
         this.price = build.price;
+        this.quantity = build.quantity;
     }
 
     public static class Builder{
@@ -65,6 +73,7 @@ public class Prescriptionline implements Serializable{
         private String instructions;
         private long medicineID;
         private double price;
+        private int quantity;
 
         public Builder prescriptionID(long value){
             this.prescriptionID = value;
@@ -87,6 +96,11 @@ public class Prescriptionline implements Serializable{
             this.price = value;
             return this;
         }
+        public Builder quantity(int value){
+            this.quantity = value;
+            return this;
+        }
+
         public Prescriptionline build(){
             return new Prescriptionline(this);
         }

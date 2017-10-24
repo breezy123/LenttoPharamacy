@@ -9,7 +9,7 @@ import LentoPharmacy.co.za.utility.KeyGenerator;
 public class PrescriptionLineFactory {
 
     public static Prescriptionline getPrescriptionLine(long prescription, String instructions,
-                                                       long medicine, double price){
+                                                       long medicine, double price, int qauntity){
 
         Prescriptionline prescriptionline = new Prescriptionline.Builder()
 
@@ -18,6 +18,7 @@ public class PrescriptionLineFactory {
                 .instructions(instructions)
                 .price(price)
                 .medicineID(medicine)
+                .quantity(qauntity)
                 .build();
         return prescriptionline;
     }

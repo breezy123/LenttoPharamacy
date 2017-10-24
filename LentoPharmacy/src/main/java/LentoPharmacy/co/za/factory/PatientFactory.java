@@ -19,4 +19,16 @@ public class PatientFactory {
 
         return patient;
     }
+
+    public static Patient updatePatient(long patientId,String patientName, String medicalaidName, int medicalaidNumber){
+
+        Patient patient = new Patient.Builder()
+                .patientId(patientId)
+                .patientName(patientName)
+                .medicalaidName(medicalaidName)
+                .medicalaidNumber(medicalaidNumber)
+                .build();
+
+        return patient;
+    }
 }

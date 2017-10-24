@@ -18,4 +18,15 @@ public class PharmacistFactory {
 
         return pharmacist;
     }
+
+    public static Pharmacist updatePharmacy(long pharmacyId,String pharmacistName, String quailification){
+
+        Pharmacist pharmacist = new Pharmacist.Builder()
+                .pharmacistID(pharmacyId)
+                .pharmacistName(pharmacistName)
+                .qualification(quailification)
+                .build();
+
+        return pharmacist;
+    }
 }

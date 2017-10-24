@@ -2,7 +2,6 @@ package LentoPharmacy.co.za.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Set;
 
 /**
@@ -15,7 +14,7 @@ public class Prescription implements Serializable{
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long prescriptionID;
-    private Date prescriptionDate;
+    private String prescriptionDate;
     private String doctorId;
     private long patientID;
     private long pharmacistID;
@@ -36,7 +35,7 @@ public class Prescription implements Serializable{
         return prescriptionID;
     }
 
-    public Date getPrescriptionDate() {
+    public String getPrescriptionDate() {
         return prescriptionDate;
     }
 
@@ -64,7 +63,7 @@ public class Prescription implements Serializable{
 
     public static class Builder{
         private long prescriptionID;
-        private Date prescriptionDate;
+        private String prescriptionDate;
         private String doctorId;
         private long patientID;
         private long pharmacistID;
@@ -73,7 +72,7 @@ public class Prescription implements Serializable{
             this.prescriptionID = value;
             return this;
         }
-        public Builder prescriptionDate(Date value){
+        public Builder prescriptionDate(String value){
             this.prescriptionDate = value;
             return this;
         }

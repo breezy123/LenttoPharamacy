@@ -14,6 +14,8 @@ public class Medicine implements Serializable{
     private long medicineID ;
     private String medicineName;
     private double medicinePrice;
+    private int quantity;
+    private String medicinZdetails;
 
     public Medicine() {
     }
@@ -30,10 +32,21 @@ public class Medicine implements Serializable{
         return medicinePrice;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public String getDetails() {
+        return medicinZdetails;
+    }
+
     public Medicine(Builder build){
         this.medicineID = build.medicineID;
         this.medicineName = build.medicineName;
         this.medicinePrice =build.medicinePrice;
+        this.quantity = build.quantity;
+        this.medicinZdetails = build.medicinZdetails;
+
     }
 
 
@@ -42,6 +55,8 @@ public class Medicine implements Serializable{
         private long medicineID ;
         private String medicineName;
         private double medicinePrice;
+        private int quantity;
+        private String medicinZdetails;
 
         public Builder medicineId(long value){
             this.medicineID = value;
@@ -53,6 +68,14 @@ public class Medicine implements Serializable{
         }
         public Builder medicinePrice(double value){
             this.medicinePrice = value;
+            return this;
+        }
+        public Builder quantity(int value){
+            this.quantity = value;
+            return this;
+        }
+        public Builder details(String value){
+            this.medicinZdetails = value;
             return this;
         }
         public Medicine build(){

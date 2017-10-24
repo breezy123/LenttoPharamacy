@@ -18,4 +18,14 @@ public class ConditionFactory {
 
         return conditionFactory;
     }
+
+    public static Conditions updateCondition(long conditionId,String conditionName){
+
+        Conditions conditionFactory = new Conditions.Builder()
+                .conditionId(conditionId)
+                .conditionName(conditionName)
+                .build();
+
+        return conditionFactory;
+    }
 }

@@ -2,7 +2,6 @@ package LentoPharmacy.co.za.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Set;
 
 /**
@@ -15,13 +14,12 @@ public class PatientCondition implements Serializable {
     private long Id;
     private long patientID;
     private long conditionId;
-    private Date dateDiagnosed;
+    private String dateDiagnosed;
 
-    @Column(name ="patientID", nullable = true)
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Patient> patientSet;
+    @Column(name ="patientID", nullable = false)
+    @OneToMany(cascade = CascadeType.ALL)    private Set<Patient> patientSet;
 
-    @Column(name ="conditionId", nullable = true)
+    @Column(name ="conditionId", nullable = false)
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Conditions>conditionsSet;
 
@@ -42,7 +40,7 @@ public class PatientCondition implements Serializable {
         return conditionId;
     }
 
-    public Date getDateDiagnosed() {
+    public String getDateDiagnosed() {
         return dateDiagnosed;
     }
 
@@ -60,7 +58,7 @@ public class PatientCondition implements Serializable {
         private long Id;
         private long patientID;
         private long conditionId;
-        private Date dateDiagnosed;
+        private String dateDiagnosed;
 
         public Builder id(long value){
             this.Id = value;
@@ -74,7 +72,7 @@ public class PatientCondition implements Serializable {
             this.conditionId = value;
             return this;
         }
-        public Builder dateDiagnosed(Date value){
+        public Builder dateDiagnosed(String value){
             this.dateDiagnosed = value;
             return this;
         }
